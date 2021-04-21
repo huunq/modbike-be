@@ -9,6 +9,10 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+const modbike = require("./src/routes/modbike");
+
+app.use(modbike);
+
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`Listen on ${port}`);
