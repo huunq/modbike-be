@@ -20,6 +20,12 @@ module.exports = {
         .update({ is_available: "yes" })
         .returning("*");
     },
+    editBike: function (id, data) {
+      return knex("bicycle").where("bike_id", id).update(data).returning("*");
+    },
+    removeBike: function (id) {
+      return knex("bicycle").where("bike_id", id).del();
+    },
   },
   history: {
     getAllHistory: function (id) {
