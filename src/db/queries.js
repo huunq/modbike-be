@@ -32,7 +32,7 @@ module.exports = {
       return knex("history")
         .join("bicycle", "bicycle.bike_id", "=", "history.bike_id")
         .where("history.student_id", id)
-        .orderBy("history.start_date");
+        .orderBy("history.start_date", "asc");
     },
     borrowBikeHistory: function (history) {
       return knex("history").insert(history).returning("*");
