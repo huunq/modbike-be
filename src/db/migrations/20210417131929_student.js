@@ -9,6 +9,7 @@ exports.up = function (knex) {
     table.string("mobile_no", 50);
     table.string("email", 50);
     table.string("other_contact", 100);
+    table.boolean("is_admin").notNullable().defaultTo(false);
   });
 };
 
