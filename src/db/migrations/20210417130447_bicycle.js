@@ -1,6 +1,6 @@
 exports.up = function (knex) {
   return knex.schema.createTable("bicycle", (table) => {
-    table.uuid("bike_id").primary();
+    table.increments("bike_id").primary();
     table.string("bike_name", 100);
     table.string("bike_type_id", 50);
     table

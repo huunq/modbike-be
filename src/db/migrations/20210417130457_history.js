@@ -1,7 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable("history", (table) => {
-    table.uuid("history_id").primary();
-    table.uuid("bike_id");
+    table.increments("history_id").primary();
+    table.string("bike_id", 100);
     table.string("student_id", 100);
     table.timestamp("start_date").defaultTo(knex.fn.now());
     table.timestamp("finish_date").defaultTo(knex.fn.now());

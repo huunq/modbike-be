@@ -1,13 +1,19 @@
-
-exports.seed = function(knex) {
+exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex("bicycle")
+    .del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex("bicycle").insert([
+        {
+          bike_name: "56-021",
+          bike_type_id: "1",
+          is_available: "yes",
+          detail: "",
+          bike_pic: "",
+          bike_eq: "",
+          branch_id: "1",
+        },
       ]);
     });
 };
