@@ -7,13 +7,13 @@ exports.seed = function (knex) {
       return knex("student").insert([
         {
           student_id: "1",
-          f_name: "rowValue1",
-          l_name: "",
-          faculty: "",
-          department: "",
-          mobile_no: "",
-          email: "",
-          other_contact: "",
+          f_name: "Krittaporn",
+          l_name: "Asavasamrit",
+          faculty: "School of Information Technology",
+          department: "Information Technology",
+          mobile_no: "063-392-9911",
+          email: "Krittaporn.bn@mail.kmutt.ac.th",
+          other_contact: "Line: _huunq",
           is_admin: true,
         },
       ]);
