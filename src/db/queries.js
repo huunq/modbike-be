@@ -3,10 +3,26 @@ const knex = require("knex");
 module.exports = {
   bicycle: {
     getAllBike: function () {
-      return knex("bicycle");
+      return knex("bicycle")
+        .join(
+          "bicycletype",
+          "bicycletype.bike_type_id",
+          "=",
+          "bicycle.bike_type_id"
+        )
+        .join("branch", "branch.branch_id", "=", "bicycle.branch_id")
+        .orderBy("bicycle.bike_id");
     },
     getBikeById: function (id) {
-      return knex("bicycle").where("bike_id", id);
+      return knex("bicycle")
+        .join(
+          "bicycletype",
+          "bicycletype.bike_type_id",
+          "=",
+          "bicycle.bike_type_id"
+        )
+        .join("branch", "branch.branch_id", "=", "bicycle.branch_id")
+        .where("bicycle.bike_id", id);
     },
     borrowBike: function (id, data) {
       return knex("bicycle")
@@ -47,6 +63,9 @@ module.exports = {
   user: {
     getPersonalData: function (id) {
       return knex("student").where("student_id", id);
+    },
+    getAllUsers: function () {
+      return knex("student").orderBy("student_id");
     },
   },
 };

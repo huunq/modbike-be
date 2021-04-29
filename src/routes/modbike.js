@@ -54,6 +54,30 @@ router.put(
   }
 );
 
+router.put(
+  "/bikes/:id/edit",
+  (req, res, next) => {
+    checkAuth(req, res, next);
+  },
+  (req, res) => {
+    queries.bicycle
+      .editBike(req.params.id, req.body)
+      .then((result) => res.sendStatus(200));
+  }
+);
+
+router.put(
+  "/bikes/:id/remove",
+  (req, res, next) => {
+    checkAuth(req, res, next);
+  },
+  (req, res) => {
+    queries.bicycle
+      .removeBike(req.params.id)
+      .then((result) => res.sendStatus(200));
+  }
+);
+
 router.get(
   "/user",
   (req, res, next) => {
@@ -63,6 +87,16 @@ router.get(
     queries.user
       .getPersonalData(req.body.student_id)
       .then((user) => res.json(user));
+  }
+);
+
+router.get(
+  "/users",
+  (req, res, next) => {
+    checkAuth(req, res, next);
+  },
+  (req, res) => {
+    queries.user.getAllUsers().then((users) => res.json(users));
   }
 );
 
