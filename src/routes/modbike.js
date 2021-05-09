@@ -135,3 +135,5 @@ router.put(
       .then((result) => res.sendStatus(200));
   }
 );
+
+module.exports = router;
